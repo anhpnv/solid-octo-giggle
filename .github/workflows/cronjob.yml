@@ -26,6 +26,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: stefanzweifel/git-auto-commit-action@v4
+        run: git init
         with:
           # Optional. Commit message for the created commit.
           # Defaults to "Apply automatic changes"
