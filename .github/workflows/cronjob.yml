@@ -28,4 +28,8 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
+        push_options: --force
         commit_message: Apply changes
+        commit_user_name: Viet Anh Pham Nhu
+        commit_user_email: nhuvietanh271098@gmail.com
+        commit_author: anhpnv <anhpnv@users.noreply.github.com>
