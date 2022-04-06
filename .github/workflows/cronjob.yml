@@ -19,7 +19,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-
+    run-on: ubuntu-latest
+    step:
     - name: commit and push
       run: |
           git config --global user.name 'anhpnv'
