@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/1 * * * *'
   push:
     branches: [ main ]
   pull_request:
@@ -21,70 +21,11 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        run: git init
-        with:
-          # Optional. Commit message for the created commit.
-          # Defaults to "Apply automatic changes"
-          commit_message: Automated Change
+    - uses: actions/checkout@v2
+      with:
+        ref: main
 
-          # Optional. Local and remote branch name where commit is going to be pushed
-          #  to. Defaults to the current branch.
-          #  You might need to set `create_branch: true` if the branch does not exist.
-          branch: feature-123
-
-          # Optional. Options used by `git-commit`.
-          # See https://git-scm.com/docs/git-commit#_options
-          commit_options: '--no-verify --signoff'
-
-          # Optional glob pattern of files which should be added to the commit
-          # Defaults to all (.)
-          # See the `pathspec`-documentation for git
-          # - https://git-scm.com/docs/git-add#Documentation/git-add.txt-ltpathspecgt82308203
-          # - https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec
-          file_pattern: src/*.js tests/*.js *.php
-
-          # Optional. Local file path to the repository.
-          # Defaults to the root of the repository.
-          repository: .
-
-          # Optional commit user and author settings
-          commit_user_name: anhpnv # defaults to "GitHub Actions"
-          commit_user_email: nhuvietanh271098@gmail.com # defaults to "actions@github.com"
-          commit_author: anhpnv <anhpnv@github.com> # defaults to author of the commit that triggered the run
-
-          # Optional. Tag name being created in the local repository and 
-          # pushed to remtoe repository and defined branch.
-          tagging_message: 'v1.0.0'
-
-          # Optional. Option used by `git-status` to determine if the repository is 
-          # dirty. See https://git-scm.com/docs/git-status#_options
-          status_options: '--untracked-files=no'
-
-          # Optional. Options used by `git-add`.
-          # See https://git-scm.com/docs/git-add#_options
-          add_options: '-u'
-
-          # Optional. Options used by `git-push`.
-          # See https://git-scm.com/docs/git-push#_options
-          push_options: '--force'
-          
-          # Optional. Disable dirty check and always try to create a commit and push
-          skip_dirty_check: true    
-          
-          # Optional. Skip internal call to `git fetch`
-          skip_fetch: true    
-          
-          # Optional. Skip internal call to `git checkout`
-          skip_checkout: true
-
-          # Optional. Prevents the shell from expanding filenames. 
-          # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
-          disable_globbing: true
-
-          # Optional. Create given branch name in local and remote repository.
-          create_branch: true
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply php-cs-fixer changes
