@@ -21,12 +21,12 @@ jobs:
   build:
     run-on: ubuntu-latest
     step:
-    - name: commit and push
-      run: |
-          git config --global user.name 'anhpnv'
-          git config --global user.email 'nhuvietanh271098@gmail.com'
-          git remote add origin https://github.com/${{ github.repository }}
-          git config --global push.default current
-          git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
-          git commit --allow-empty -m "Test allow empty commit"
-          git push
+      - name: commit and push
+        run: |
+            git config --global user.name 'anhpnv'
+            git config --global user.email 'nhuvietanh271098@gmail.com'
+            git remote add origin https://github.com/${{ github.repository }}
+            git config --global push.default current
+            git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
+            git commit --allow-empty -m "Test allow empty commit"
+            git push
