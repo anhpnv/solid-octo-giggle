@@ -4,6 +4,7 @@ name: Trigger Auto commit on a CRON Schedule
 
 # Controls when the workflow will run
 on:
+  workflow_dispatch:
   schedule:
     - cron: "* * * * *"
     # - cron: "*/1 * * * *"
