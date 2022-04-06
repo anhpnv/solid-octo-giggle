@@ -19,17 +19,13 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: main
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        push_options: --force
-        commit_message: Apply changes
-        commit_user_name: Viet Anh Pham Nhu
-        commit_user_email: nhuvietanh271098@gmail.com
-        commit_author: anhpnv <anhpnv@users.noreply.github.com>
+    - name: commit and push
+      run: |
+          git config --global user.name 'anhpnv'
+          git config --global user.email 'nhuvietanh271098@gmail.com'
+          git remote add origin https://github.com/${{ github.repository }}
+          git config --global push.default current
+          git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
+          git commit --allow-empty -m "Test allow empty commit"
+          git push
