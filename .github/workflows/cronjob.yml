@@ -30,4 +30,4 @@ jobs:
             git config --global push.default current
             git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
             git commit --allow-empty -m "Test allow empty commit"
-            git push
+            git push --force
