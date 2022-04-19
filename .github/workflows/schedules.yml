@@ -22,7 +22,7 @@ jobs:
         run: |
             rm -rf ${{ github.repository }}
             git clone https://github.com/${{ github.repository }}
-            cd ${{ github.repository }}
+            cd solid-octo-giggle
             git config --global user.name 'anhpnv'
             git config --global user.email 'nhuvietanh271098@gmail.com'
             git remote add origin https://github.com/${{ github.repository }}
