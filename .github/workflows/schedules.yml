@@ -25,7 +25,5 @@ jobs:
             cd solid-octo-giggle
             git config --global user.name 'anhpnv'
             git config --global user.email 'nhuvietanh271098@gmail.com'
-            git remote add origin https://github.com/${{ github.repository }}
-            git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
             git commit --allow-empty -m "Update Star"
             git push origin main
