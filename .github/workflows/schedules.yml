@@ -28,5 +28,5 @@ jobs:
             git remote remove origin
             git remote add origin https://github.com/${{ github.repository }}
             git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
-            git commit --allow-empty -m "Update Star"
+            git commit --allow-empty -m "Update New Star to Repo"
             git push origin main
