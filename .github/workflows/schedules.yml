@@ -1,28 +1,28 @@
-# This is a basic workflow to help you get started with Actions
+# # This is a basic workflow to help you get started with Actions
 
-name: Trigger Site Rebuild on a CRON Schedule
+# name: Trigger Site Rebuild on a CRON Schedule
 
-# Controls when the workflow will run
-on:
-  schedule:
-  - cron: 0 0 * * *
+# # Controls when the workflow will run
+# on:
+#   schedule:
+#   - cron: 0 0 * * *
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  cron:
-    name: Trigger
-    runs-on: ubuntu-latest
-    steps:
-      - name: commit and push
-        run: |
-            rm -rf ${{ github.repository }}
-            git clone https://github.com/${{ github.repository }}
-            cd solid-octo-giggle
-            git config --global user.name '${{ secrets.USERNAME }}'
-            git config --global user.email '${{ secrets.EMAIL }}'
-            git remote remove origin
-            git remote add origin https://github.com/${{ github.repository }}
-            git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
-            git commit --allow-empty -m "Update New Star to Repo"
-            git push origin main
+# # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# jobs:
+#   # This workflow contains a single job called "build"
+#   cron:
+#     name: Trigger
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: commit and push
+#         run: |
+#             rm -rf ${{ github.repository }}
+#             git clone https://github.com/${{ github.repository }}
+#             cd solid-octo-giggle
+#             git config --global user.name '${{ secrets.USERNAME }}'
+#             git config --global user.email '${{ secrets.EMAIL }}'
+#             git remote remove origin
+#             git remote add origin https://github.com/${{ github.repository }}
+#             git remote set-url origin https://${{ secrets.PASS_TOKEN }}@github.com/${{ github.repository }}
+#             git commit --allow-empty -m "Update New Star to Repo"
+#             git push origin main
